@@ -9,7 +9,6 @@ const icon = document.querySelector('.icon')
 let city = "chennai";
 let temp = null;
 let weatherURL = null;
-button.addEventListener("click", updateCity);
 cityName.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     city = cityName.value.toLowerCase();
@@ -18,12 +17,6 @@ cityName.addEventListener("keydown", (e) => {
     renderWeather();
   }
 });
-function updateCity() {
-  city = cityName.value;
-  console.log(city);
-  weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=chennai&appid=${APIKey}&units=metric`;
-  renderWeather();
-}
 function getWeather() {
   return fetch(weatherURL)
     .then((response) => response.json())

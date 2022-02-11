@@ -18,10 +18,10 @@
 }
 .city-name{
     position: absolute;
-    width: 95%;
+    height: 2em;
+    width: 100vw;
     top: 0;
     left: 0;
-    padding: 0.5em;
     background-color: rgba(0,0,0,0.1);
     font-size: large;
     border: none;
@@ -32,19 +32,7 @@
     border: none;
     outline: none;
 }
-.submit{
-    position: absolute;
-    width: 5vw;
-    height: 6vh;
-    top: 0;
-    right: 0;
-    
-    font-size: 1.5em;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    user-select: none;
-}
+
 .rainy{
     background-image: linear-gradient(45deg,rgb(58, 255, 255) 10%, rgb(0, 38, 255) 70%);
 }
