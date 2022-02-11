@@ -9,6 +9,8 @@ const icon = document.querySelector('.icon')
 let city = "chennai";
 let temp = null;
 let weatherURL = null;
+
+
 cityName.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     city = cityName.value.toLowerCase();
@@ -17,11 +19,15 @@ cityName.addEventListener("keydown", (e) => {
     renderWeather();
   }
 });
+
+
 function getWeather() {
   return fetch(weatherURL)
     .then((response) => response.json())
     .then((data) => data);
 }
+
+
 async function renderWeather() {
   temp = await getWeather();
   tempValue.innerText = `${Math.floor(temp.main.temp)} °C`;
@@ -29,12 +35,23 @@ async function renderWeather() {
   weatherCondition.innerText = temp.weather[0].main;
   classManager();
 }
+
+tempValue.addEventListener('click', ()=>{
+    if(tempValue.innerText === `${Math.floor(temp.main.temp)} °C`){
+        tempValue.innerText = `${Math.floor((temp.main.temp)*1.8)} °F`
+    }else{
+        tempValue.innerText = `${Math.floor(temp.main.temp)} °C`
+    }
+})
+
 function removeClasses() {
   container.classList.remove("rainy");
   container.classList.remove("warm");
   container.classList.remove("fog");
   container.classList.remove("cold");
 }
+
+
 function classManager() {
   if (temp.weather[0].main === "Clouds") {
     removeClasses();
